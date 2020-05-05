@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -9,17 +10,29 @@ import java.awt.Graphics;
  *
  */
 public abstract class AbstractShape implements Shape {
-	protected AbstractShape[] childShapes;
-
+	protected AbstractShape[] children;
+	protected int level;
+	protected int maxLevel;
+	protected Color color;
+	
+	
+	
+	protected AbstractShape(int maxLevel, Color color) {
+		this.children = new AbstractShape[maxLevel];
+		this.level = 1;
+		this.maxLevel = maxLevel;
+		this.color = color;
+	}
 	/**
 	 * @param Graphics g: java.awt.Graphics
 	 */
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
-
+		getBaseShape(g);
+		
 	}
-
+	abstract protected void getBaseShape(Graphics g);
 	/**
 	 * 
 	 */

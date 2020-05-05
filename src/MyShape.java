@@ -1,9 +1,23 @@
+import java.awt.Color;
+import java.awt.Graphics;
 
 /**
  * @author Anthony Asp & Michael Cho
  *
  */
 public class MyShape extends AbstractShape {
+	
+	
+	/**
+	 * 
+	 * @param maxLevel
+	 * @param color
+	 */
+	protected MyShape(int maxLevel, Color color) {
+		super(maxLevel, color);
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * 
 	 */
@@ -11,6 +25,12 @@ public class MyShape extends AbstractShape {
 	public void createChildren() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	protected void getBaseShape(Graphics g) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
