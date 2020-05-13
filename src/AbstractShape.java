@@ -28,9 +28,13 @@ public abstract class AbstractShape implements Shape {
 	 */
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
-		getBaseShape(g);
-		
+		if (children == null) {
+			drawBaseShape(g);
+		} else {
+			for (AbstractShape child : children) {
+				child.draw(g);
+			}
+		}
 	}
 
 	abstract public void drawBaseShape(Graphics g);
