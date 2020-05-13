@@ -6,8 +6,7 @@ import java.awt.Graphics;
  *
  */
 public class MyShape extends AbstractShape {
-	
-	
+
 	/**
 	 * 
 	 * @param maxLevel
