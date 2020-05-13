@@ -14,15 +14,13 @@ public abstract class AbstractShape implements Shape {
 	protected int level;
 	protected int maxLevel;
 	protected Color color;
-	
-	
-	
-	protected AbstractShape(int maxLevel, Color color) {
-		this.children = new AbstractShape[maxLevel];
-		this.level = 1;
+
+	protected AbstractShape(int maxLevel, int level, Color color) {
+		this.level = level;
 		this.maxLevel = maxLevel;
 		this.color = color;
 	}
+
 	/**
 	 * @param Graphics g: java.awt.Graphics
 	 */

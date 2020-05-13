@@ -14,7 +14,7 @@ public class MyShape extends AbstractShape {
 	 * @param color
 	 */
 	protected MyShape(int maxLevel, Color color) {
-		super(maxLevel, color);
+		super(maxLevel, 1, color);
 		// TODO Auto-generated constructor stub
 	}
 

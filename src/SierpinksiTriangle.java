@@ -13,8 +13,8 @@ public class SierpinksiTriangle extends AbstractShape {
 	 * 
 	 */
 	protected SierpinksiTriangle() {
-		super(3, Color.GREEN);
-		// TODO Auto-generated constructor stub
+		super(3, 1, Color.GREEN);
+
 	}
 
 	/**
