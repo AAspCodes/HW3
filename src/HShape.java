@@ -14,6 +14,13 @@ public class HShape extends AbstractShape {
 		this.height = height;
 		createChildren();
 	}
+
+	public HShape(int drawStartX, int drawStartY, int width, int height, int level) {
+		super(7, level, Color.RED);
+		this.drawStartX = drawStartX;
+		this.drawStartY = drawStartY;
+		this.width = width;
+		this.height = height;
 	}
 
 	/**
