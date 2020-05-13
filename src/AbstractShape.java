@@ -32,7 +32,6 @@ public abstract class AbstractShape implements Shape {
 		getBaseShape(g);
 		
 	}
-	abstract protected void getBaseShape(Graphics g);
 	/**
 	 * 
 	 */

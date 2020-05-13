@@ -28,7 +28,6 @@ public class MyShape extends AbstractShape {
 	}
 
 	@Override
-	protected void getBaseShape(Graphics g) {
 		// TODO Auto-generated method stub
 		
 	}
