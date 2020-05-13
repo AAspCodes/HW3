@@ -28,8 +28,20 @@ public class HShape extends AbstractShape {
 	 */
 	@Override
 	public void createChildren() {
-		// TODO Auto-generated method stub
+		this.children = new AbstractShape[maxLevel];
+		int childWidth, childHeight;
+		childWidth = width / 3;
+		childHeight = height / 3;
 
+		children[0] = new HShape(drawStartX, drawStartY, childWidth, childHeight, level + 1);
+		children[1] = new HShape(drawStartX, childHeight + drawStartY, childWidth, childHeight, level + 1);
+		children[2] = new HShape(drawStartX, childHeight * 2 + drawStartY, childWidth, childHeight, level + 1);
+		children[3] = new HShape(childWidth + drawStartX, childHeight + drawStartY, childWidth, childHeight, level + 1);
+		children[4] = new HShape(childWidth * 2 + drawStartX, drawStartY, childWidth, childHeight, level + 1);
+		children[5] = new HShape(childWidth * 2 + drawStartX, childHeight + drawStartY, childWidth, childHeight,
+				level + 1);
+		children[6] = new HShape(childWidth * 2 + drawStartX, childHeight * 2 + drawStartY, childWidth, childHeight,
+				level + 1);
 	}
 
 	public void drawBaseShape(Graphics g) {
