@@ -6,6 +6,7 @@ import java.awt.Graphics;
  *
  */
 public class HShape extends AbstractShape {
+	private int width, height, drawStartX, drawStartY;
 
 		super(7, 1, Color.RED);
 	}
