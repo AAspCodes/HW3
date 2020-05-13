@@ -24,6 +24,9 @@ public class HShape extends AbstractShape {
 
 	}
 
+	public void drawBaseShape(Graphics g) {
+		g.setColor(color);
+		g.fillRect(drawStartX, drawStartY, width, height);
 	}
 
 }

@@ -27,6 +27,9 @@ public class SierpinksiTriangle extends AbstractShape {
 	}
 	
 	@Override
+	public void drawBaseShape(Graphics g) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

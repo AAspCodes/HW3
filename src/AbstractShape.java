@@ -32,6 +32,9 @@ public abstract class AbstractShape implements Shape {
 		getBaseShape(g);
 		
 	}
+
+	abstract public void drawBaseShape(Graphics g);
+
 	/**
 	 * 
 	 */
