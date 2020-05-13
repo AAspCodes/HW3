@@ -58,8 +58,20 @@ public abstract class AbstractShape implements Shape {
 	 */
 	@Override
 	public boolean removeLevel() {
-		// TODO Auto-generated method stub
-		return false;
+		if (children[0].children == null) {
+			if (level != 1) {
+				children = null;
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			for (AbstractShape child : children) {
+				child.removeLevel();
+			}
+			return true;
+
+		}
 	}
 
 	/**
