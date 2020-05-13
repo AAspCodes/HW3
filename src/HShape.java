@@ -8,7 +8,12 @@ import java.awt.Graphics;
 public class HShape extends AbstractShape {
 	private int width, height, drawStartX, drawStartY;
 
+	public HShape(int width, int height) {
 		super(7, 1, Color.RED);
+		this.width = width;
+		this.height = height;
+		createChildren();
+	}
 	}
 
 	/**
