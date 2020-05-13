@@ -38,8 +38,19 @@ public abstract class AbstractShape implements Shape {
 	 */
 	@Override
 	public boolean addLevel() {
-		// TODO Auto-generated method stub
-		return false;
+		if (level == maxLevel) {
+			return false;
+		}
+		if (children != null) {
+			for (Shape child : children) {
+				if (!child.addLevel()) {
+					return false;
+				}
+			}
+		} else {
+			createChildren();
+		}
+		return true;
 	}
 
 	/**
