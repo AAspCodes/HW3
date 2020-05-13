@@ -7,8 +7,7 @@ import java.awt.Polygon;
  *
  */
 public class SierpinksiTriangle extends AbstractShape {
-	
-	
+
 	/**
 	 * 
 	 */
@@ -17,15 +16,12 @@ public class SierpinksiTriangle extends AbstractShape {
 
 	}
 
-	/**
-	 * 
-	 */
 	@Override
 	public void createChildren() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	@Override
 	public void drawBaseShape(Graphics g) {
 		// TODO Auto-generated method stub
