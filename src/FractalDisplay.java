@@ -232,8 +232,8 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 	 * Displays a message box giving the total number shapes in the current shape
 	 */
 	private void checkPopup(MouseEvent e) {
-		// Do it only if we have a request for a pop up menu
-		if (!e.isPopupTrigger()) {
+		// Do it only if we have a request for a pop up menu, aka right click...
+		if (!e.isPopupTrigger()) {	
 			return;
 		}
 
