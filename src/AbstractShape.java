@@ -11,21 +11,27 @@ import java.awt.Graphics;
  */
 public abstract class AbstractShape implements Shape {
 	protected AbstractShape[] children;
-	protected int level;
-	protected int maxLevel;
+	protected int level, width,height, drawStartX, drawStartY;
+	protected final int maxLevel;
 	protected Color color;
 
-	protected AbstractShape(int maxLevel, int level, Color color) {
-		this.level = level;
+	protected AbstractShape(int maxLevel, int level, int width, int height,int drawStartX, int drawStartY, Color color) {
 		this.maxLevel = maxLevel;
+		this.level = level;
+		this.width = width;
+		this.height = height;
+		this.drawStartX = drawStartX;
+		this.drawStartY = drawStartY;
 		this.color = color;
 	}
+	
 
 	/**
 	 * @param Graphics g: java.awt.Graphics
 	 */
 	@Override
 	public void draw(Graphics g) {
+		g.setColor(color);
 		if (children == null) {
 			drawBaseShape(g);
 		} else {
@@ -44,8 +50,7 @@ public abstract class AbstractShape implements Shape {
 	public boolean addLevel() {
 		if (level == maxLevel) {
 			return false;
-		}
-		if (children != null) {
+		} else if (children != null) {
 			for (Shape child : children) {
 				if (!child.addLevel()) {
 					return false;
@@ -62,20 +67,19 @@ public abstract class AbstractShape implements Shape {
 	 */
 	@Override
 	public boolean removeLevel() {
-		if (children[0].children == null) {
-			if (level != 1) {
-				children = null;
-				return true;
-			} else {
-				return false;
-			}
-		} else {
+
+		if (children == null) {
+			return false;
+		} else if (children[0].children == null) {
+			children = null;
+		} else{
 			for (AbstractShape child : children) {
 				child.removeLevel();
 			}
-			return true;
-
 		}
+		
+		return true;
+
 	}
 
 	/**
@@ -83,8 +87,15 @@ public abstract class AbstractShape implements Shape {
 	 */
 	@Override
 	public int countShapes() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (children != null) {
+			int numOfShapes = 0;
+			for (AbstractShape child: children) {
+				numOfShapes += child.countShapes();
+			}
+			return numOfShapes;
+		} else {
+			return 1;
+		}
 	}
 
 	/**
