@@ -14,6 +14,7 @@ public abstract class AbstractShape implements Shape {
 	protected int level, width,height, drawStartX, drawStartY;
 	protected final int maxLevel;
 	protected Color color;
+	protected double sliderVal = 1.0;
 
 	protected AbstractShape(int maxLevel, int level, int width, int height,int drawStartX, int drawStartY, Color color) {
 		this.maxLevel = maxLevel;
@@ -25,6 +26,11 @@ public abstract class AbstractShape implements Shape {
 		this.color = color;
 	}
 	
+	protected AbstractShape(int maxLevel, int level, Color color) {
+		this.maxLevel = maxLevel;
+		this.level = level;
+		this.color = color;
+	}
 
 	/**
 	 * @param Graphics g: java.awt.Graphics
@@ -103,10 +109,31 @@ public abstract class AbstractShape implements Shape {
 	 */
 	@Override
 	public void update(int value) {
-		// TODO Auto-generated method stub
+		sliderVal = value / 50.0;
+		System.out.println(sliderVal);
+		int depth = findDepth();
+		children = null;
+		createChildrenAtDepth(depth);
+		
 
 	}
-
+	private void createChildrenAtDepth(int depth) {
+		if (depth > 1) {
+			createChildren();
+			depth--;
+			for (AbstractShape child: children) {
+				child.createChildrenAtDepth(depth);
+			}
+		}
+	}
+	
+	private int findDepth() {
+		if (children == null) {
+			return 1;
+		} else {
+			return 1 + children[0].findDepth();
+		}
+	}
 	/**
 	 * 
 	 */
