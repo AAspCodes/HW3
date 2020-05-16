@@ -32,22 +32,17 @@ public class SierpinksiTriangle extends AbstractShape {
 	public void createChildren() {
 		this.children = new AbstractShape[3];
 		int newLevel = level + 1;
-		int newWidth = width / 2;
-		int newHeight = height / 2;
-//		children[0] = new SierpinksiTriangle(drawStartX,
-//				(int) (drawStartY + newHeight / sliderVal),
-//				(int) ( newWidth / sliderVal),
-//				(int) (((drawStartY + newHeight) - (drawStartY + newHeight / sliderVal)) + drawStartY + newHeight ),
-//				newLevel);
+
+
 		int[] sharedX = new int[] {
-				(int)((xPoints[1]- xPoints[0]) * sliderVal / 2) + xPoints[0]/2,
-				(int)(xPoints[1] + xPoints[1] / 2 * sliderVal),
-				(int)((xPoints[2] - xPoints[0])/ 2 * sliderVal)	+ xPoints[0]	
+				(int)(xPoints[1] / 2.0 * sliderVal),
+				(int)(xPoints[1] + xPoints[1] / 2.0 * sliderVal),
+				(int)(xPoints[2]/ 2 * sliderVal)	
 				};
 		int[] sharedY = new int[] {
-				(int) (yPoints[0] - yPoints[0] / 2 * sliderVal) + yPoints[1] / 2,
-				(int) (yPoints[0] / 2 * sliderVal) + yPoints[1]/2,
-				(int) ((yPoints[0] - yPoints[2]) / 2 / sliderVal) + yPoints[2]
+				(int) (yPoints[0] - (yPoints[0] / 2.0 * sliderVal)),
+				(int) (yPoints[2] / 2.0 * sliderVal),
+				yPoints[0]
 				};
 		
 		
