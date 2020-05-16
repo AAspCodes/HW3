@@ -22,10 +22,11 @@ public class SierpinksiTriangle extends AbstractShape {
 
 	}
 
-	protected SierpinksiTriangle(int[] xPoints, int[] yPoints, int level) {
+	protected SierpinksiTriangle(int[] xPoints, int[] yPoints,double sliderVal, int level) {
 		super(maxLevel, level, color);
 		this.xPoints = xPoints;
 		this.yPoints = yPoints;
+		this.sliderVal = sliderVal;
 	}
 
 	@Override
@@ -50,15 +51,18 @@ public class SierpinksiTriangle extends AbstractShape {
 		
 		children[0] = new SierpinksiTriangle(new int[] {xPoints[0],sharedX[0], sharedX[2], xPoints[3]},
 											new int[] {yPoints[0], sharedY[0], sharedY[2], yPoints[3]},
+											sliderVal,
 											newLevel);
 		
 	
 		children[1] = new SierpinksiTriangle(new int[] {sharedX[0], xPoints[1], sharedX[1], sharedX[0]},
 											 new int[] {sharedY[0], yPoints[1], sharedY[1], sharedY[0]},
+											 sliderVal,
 											 newLevel);
 		
 		children[2] = new SierpinksiTriangle(new int[] {sharedX[2], sharedX[1], xPoints[2], sharedX[2]},
 											 new int[] {sharedY[2], sharedY[1], yPoints[2], sharedY[2]},
+											 sliderVal,
 											 newLevel);
 		
 		
