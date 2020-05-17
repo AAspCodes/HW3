@@ -13,10 +13,10 @@ public abstract class AbstractShape implements Shape {
 
 	protected AbstractShape[] children; // the array of children shapes
 	protected int level, width, height, drawStartX, drawStartY; // level, width and height of the graphics frame, origin starting at (0,0) 
-	protected final int maxLevel; // maxlevel determined by each shape
-	protected Color color;
-	protected double sliderVal = 1.0; // slider value that skews the shapes
-	public static int count;
+	protected final int maxLevel; 		// max level determined by each shape class
+	protected Color color;				// the color the shape will be drawn in
+	protected double sliderVal = 1.0;   // slider value that skews the shapes
+	public static int count;			// the number of shapes in the display
 
 
 	/**
@@ -84,11 +84,16 @@ public abstract class AbstractShape implements Shape {
 			}
 		}
 	}
-
+	/**
+	 * Draw the base shape
+	 */
 	protected abstract void drawBaseShape(Graphics g);
 
 	/**
 	 * Adds a level of recursive shapes
+	 * 
+	 * @return boolean
+	 * 			Whether or not a level was added
 	 */
 	@Override
 	public boolean addLevel() {
@@ -110,6 +115,9 @@ public abstract class AbstractShape implements Shape {
 
 	/**
 	 * Reverses the recursive drawing of the shape and removes level
+	 * 
+	 * @return boolean
+	 * 			Whether or not a level was removed
 	 */
 	@Override
 	public boolean removeLevel() {
@@ -130,6 +138,9 @@ public abstract class AbstractShape implements Shape {
 
 	/**
 	 * Recursive algorithm to count the number of shapes
+	 * 
+	 * @return numOfShapes 
+	 * 				The number of shapes below this shape and this shape
 	 */
 	@Override
 	public int countShapes() {
@@ -146,6 +157,9 @@ public abstract class AbstractShape implements Shape {
 	
 	/**
 	 * Send shape count to FractalDisplay
+	 * 
+	 * @return count
+	 * 			The number of shapes
 	 */
 	public static int getCount() {
 		return count;
@@ -154,6 +168,9 @@ public abstract class AbstractShape implements Shape {
 
 	/**
 	 * Updates values for the slider
+	 * 
+	 * @param value
+	 * 			The new slider value
 	 */
 	@Override
 	public void update(int value) {
@@ -163,6 +180,10 @@ public abstract class AbstractShape implements Shape {
 		createChildrenAtDepth(depth);
 	}
 
+	/**
+	 * @param depth
+	 * 			how deep to make the tree
+	 */
 	private void createChildrenAtDepth(int depth) {
 		if (depth > 1) {
 			createChildren();
@@ -173,6 +194,10 @@ public abstract class AbstractShape implements Shape {
 		}
 	}
 
+	/**
+	 * @return int depth
+	 * 				the depth of the tree
+	 */
 	private int findDepth() {
 		if (children == null) {
 			return 1;
@@ -182,9 +207,8 @@ public abstract class AbstractShape implements Shape {
 	}
 
 	/**
-	 * 
+	 * Create a new set of children.
 	 */
-
 	protected abstract void createChildren();
 
 }
