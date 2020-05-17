@@ -41,7 +41,7 @@ public class HShape extends AbstractShape {
 	}
 
 	/**
-	 * 
+	 * Creates a new set of children.
 	 */
 	@Override
 	public void createChildren() {
@@ -65,10 +65,15 @@ public class HShape extends AbstractShape {
 		}
 	}
 
+	
+	/**
+	 * Draws the initial shape
+	 */
 	public void drawBaseShape(Graphics g) {
 		g.fillRect(drawStartX, drawStartY, width / 3, height);
 		g.fillRect(drawStartX + width / 3, drawStartY + height / 3, width / 3, height / 3);
 		g.fillRect(drawStartX + width / 3 * 2, drawStartY, width / 3, height);
+
 	}
 
 }

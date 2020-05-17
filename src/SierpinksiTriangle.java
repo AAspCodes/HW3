@@ -22,13 +22,26 @@ public class SierpinksiTriangle extends AbstractShape {
 
 	}
 
-	protected SierpinksiTriangle(int[] xPoints, int[] yPoints, double sliderVal, int level) {
+	/**
+	 * This constructor is used for creating children.
+	 * 
+	 * @param xPoints
+	 * @param yPoints
+	 * @param sliderVal
+	 * @param level
+	 * 
+	 */
+	protected SierpinksiTriangle(int[] xPoints, int[] yPoints,double sliderVal, int level) {
 		super(maxLevel, level, color);
 		this.xPoints = xPoints;
 		this.yPoints = yPoints;
 		this.sliderVal = sliderVal;
 	}
 
+
+	/**
+	 * Creates a new set of children.
+	 */
 	@Override
 	public void createChildren() {
 		this.children = new AbstractShape[3];
@@ -56,8 +69,12 @@ public class SierpinksiTriangle extends AbstractShape {
 											 new int[] { sharedY[2], sharedY[1], yPoints[2], sharedY[2] },
 											 sliderVal, newLevel);
 
+
 	}
 
+	/**
+	 * Draws the initial shape
+	 */
 	@Override
 	public void drawBaseShape(Graphics g) {
 		g.drawPolyline(xPoints, yPoints, 4);
