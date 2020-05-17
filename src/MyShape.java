@@ -20,6 +20,7 @@ public class MyShape extends AbstractShape {
 	 */
 	protected MyShape(int width, int height) {
 		this(0, 0, width, height, 1);
+		super.color = color;
 	}
 
 	/**
@@ -39,7 +40,7 @@ public class MyShape extends AbstractShape {
 	 * 
 	 */
 	protected MyShape(int drawStartX, int drawStartY, int width, int height, int level) {
-		super(drawStartX, drawStartY, width, height, maxLevel, level, color);
+		super(drawStartX, drawStartY, width, height, maxLevel, level);
 	}
 
 	/**

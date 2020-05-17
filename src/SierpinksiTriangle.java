@@ -31,8 +31,8 @@ public class SierpinksiTriangle extends AbstractShape {
 			1.0,											// slider value
 			1												// starting level
 			);
-
-
+		super.color = color;
+		
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class SierpinksiTriangle extends AbstractShape {
 	 * 
 	 */
 	protected SierpinksiTriangle(int[] xPoints, int[] yPoints,double sliderVal, int level) {
-		super(maxLevel, level, color);
+		super(maxLevel, level);
 		this.xPoints = xPoints;
 		this.yPoints = yPoints;
 		this.sliderVal = sliderVal;

@@ -21,6 +21,7 @@ public class HShape extends AbstractShape {
 	 */
 	public HShape(int width, int height) {
 		this(0,0,width,height,1);
+		super.color = color;
 	}
 
 	/**
@@ -39,7 +40,7 @@ public class HShape extends AbstractShape {
 	 *            The depth of this shape in relation to the root.
 	 */
 	public HShape(int drawStartX, int drawStartY, int width, int height, int level) {
-		super(drawStartX, drawStartY, width, height, maxLevel, level, color);
+		super(drawStartX, drawStartY, width, height, maxLevel, level);
 	}
 
 	/**
