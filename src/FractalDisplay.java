@@ -168,7 +168,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 				shape = new HShape(WIDTH, HEIGHT);
 				break;
 			case MY_SHAPE:
-				shape = new MyShape(WIDTH,HEIGHT);
+				shape = new MyShape(WIDTH, HEIGHT);
 				break;
 			}
 		} else if (e.getSource() == addLevel) {
@@ -177,7 +177,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 				boolean success = shape.addLevel();
 				if (!success) {
 					JOptionPane.showMessageDialog(this, "Can't add another level", "Message",
-					        JOptionPane.WARNING_MESSAGE);
+							JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		} else if (e.getSource() == removeLevel) {
@@ -186,7 +186,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 				boolean success = shape.removeLevel();
 				if (!success) {
 					JOptionPane.showMessageDialog(this, "Can't remove another level", "Message",
-					        JOptionPane.WARNING_MESSAGE);
+							JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		} else {
@@ -233,7 +233,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 	 */
 	private void checkPopup(MouseEvent e) {
 		// Do it only if we have a request for a pop up menu, aka right click...
-		if (!e.isPopupTrigger()) {	
+		if (!e.isPopupTrigger()) {
 			return;
 		}
 
