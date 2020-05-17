@@ -30,7 +30,7 @@ public class HShape extends AbstractShape {
 	 * @param level
 	 */
 	public HShape(int drawStartX, int drawStartY, int width, int height, int level) {
-		super(maxLevel, level, width, height, drawStartX, drawStartY, color);
+		super(drawStartX, drawStartY, width, height, maxLevel, level, color);
 	}
 
 	/**

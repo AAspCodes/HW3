@@ -16,14 +16,14 @@ public abstract class AbstractShape implements Shape {
 	protected Color color;
 	protected double sliderVal = 1.0;
 
-	protected AbstractShape(int maxLevel, int level, int width, int height, int drawStartX, int drawStartY,
+	protected AbstractShape(int drawStartX, int drawStartY, int width, int height, int maxLevel, int level,
 			Color color) {
-		this.maxLevel = maxLevel;
-		this.level = level;
-		this.width = width;
-		this.height = height;
 		this.drawStartX = drawStartX;
 		this.drawStartY = drawStartY;
+		this.width = width;
+		this.height = height;
+		this.maxLevel = maxLevel;
+		this.level = level;
 		this.color = color;
 	}
 
@@ -75,7 +75,7 @@ public abstract class AbstractShape implements Shape {
 	@Override
 	public boolean removeLevel() {
 
-		if (children == null) {
+		if (children == null) { 
 			return false;
 		} else if (children[0].children == null) {
 			children = null;
