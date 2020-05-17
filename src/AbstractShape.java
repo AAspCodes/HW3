@@ -14,6 +14,10 @@ public abstract class AbstractShape implements Shape {
 	protected AbstractShape[] children; // the array of children shapes
 	protected int level, width, height, drawStartX, drawStartY; // level, width and height of the graphics frame, origin starting at (0,0) 
 	protected final int maxLevel; // maxlevel determined by each shape
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 	protected Color color;
 	protected double sliderVal = 1.0; // slider value that skews the shapes
 	public static int count;
@@ -38,6 +42,10 @@ public abstract class AbstractShape implements Shape {
 	 * 
 	 */
 	protected AbstractShape(int maxLevel, int level, int width, int height,int drawStartX, int drawStartY, Color color) {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 		this.maxLevel = maxLevel;
 		this.level = level;
 		this.width = width;
@@ -47,6 +55,11 @@ public abstract class AbstractShape implements Shape {
 		this.color = color;
 	}
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 	/**
 	 * AbstractShape constructor shared by the shape subclasses
 	 * 
@@ -58,6 +71,10 @@ public abstract class AbstractShape implements Shape {
 	 *            color of the shape
 	 * 
 	 */
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 	protected AbstractShape(int maxLevel, int level, Color color) {
 		this.maxLevel = maxLevel;
 		this.level = level;
@@ -178,7 +195,10 @@ public abstract class AbstractShape implements Shape {
 		}
 	}
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 	abstract public void createChildren();
 
 }
