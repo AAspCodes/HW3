@@ -10,8 +10,7 @@ public class MyShape extends AbstractShape {
 	protected static final Color color = Color.BLUE;
 
 	protected MyShape(int width, int height) {
-		// height and width -1 to prevent the line from being draw outside the box;
-		super(maxLevel, 1, width, height, 0, 0, color);
+		this(0, 0, width, height, 1);
 	}
 
 	protected MyShape(int drawStartX, int drawStartY, int width, int height, int level) {
