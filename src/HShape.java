@@ -41,8 +41,8 @@ public class HShape extends AbstractShape {
 		this.children = new AbstractShape[7];
 
 		int newLevel = level + 1;
-		int childWidth = (int) (width / 3.0);
-		int childHeight = (int) (height / 3.0);
+		int childWidth = (int) Math.round(width / 3.0);
+		int childHeight = (int) Math.round(height / 3.0);
 		int childNumber = 0;
 
 		for (int row = 0; row < 3; row++) {
