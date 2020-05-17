@@ -34,8 +34,6 @@ public abstract class AbstractShape implements Shape {
 	 *            maximum level of recursion
 	 * @param level
 	 *            current level of recursion
-	 * @param color
-	 * 			  color of the shape
 	 * 
 	 */
 	protected AbstractShape(int drawStartX, int drawStartY, int width, int height, int maxLevel, int level) {
