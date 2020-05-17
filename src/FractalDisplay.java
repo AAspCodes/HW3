@@ -186,6 +186,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 //				shape = null;
 				break;
 			case MY_SHAPE:
+				shape = new MyShape(WIDTH, HEIGHT);
 				// TODO
 				// Call your MyShape constructor here
 				// Replace shape = null with shape = new MyShape(...))

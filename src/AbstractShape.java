@@ -10,23 +10,14 @@ import java.awt.Graphics;
  *
  */
 public abstract class AbstractShape implements Shape {
-<<<<<<< Updated upstream
-	protected AbstractShape[] children;
-	protected int level, width, height, drawStartX, drawStartY;
-	protected final int maxLevel;
-=======
+
 	protected AbstractShape[] children; // the array of children shapes
 	protected int level, width, height, drawStartX, drawStartY; // level, width and height of the graphics frame, origin starting at (0,0) 
 	protected final int maxLevel; // maxlevel determined by each shape
->>>>>>> Stashed changes
 	protected Color color;
 	protected double sliderVal = 1.0; // slider value that skews the shapes
 	public static int count;
 
-<<<<<<< Updated upstream
-	protected AbstractShape(int maxLevel, int level, int width, int height, int drawStartX, int drawStartY,
-			Color color) {
-=======
 	/**
 	 * AbstractShape child constructor shared by the shape subclasses
 	 * 
@@ -47,7 +38,6 @@ public abstract class AbstractShape implements Shape {
 	 * 
 	 */
 	protected AbstractShape(int maxLevel, int level, int width, int height,int drawStartX, int drawStartY, Color color) {
->>>>>>> Stashed changes
 		this.maxLevel = maxLevel;
 		this.level = level;
 		this.width = width;
@@ -56,9 +46,7 @@ public abstract class AbstractShape implements Shape {
 		this.drawStartY = drawStartY;
 		this.color = color;
 	}
-<<<<<<< Updated upstream
 
-=======
 	/**
 	 * AbstractShape constructor shared by the shape subclasses
 	 * 
@@ -70,7 +58,6 @@ public abstract class AbstractShape implements Shape {
 	 *            color of the shape
 	 * 
 	 */
->>>>>>> Stashed changes
 	protected AbstractShape(int maxLevel, int level, Color color) {
 		this.maxLevel = maxLevel;
 		this.level = level;
@@ -133,11 +120,7 @@ public abstract class AbstractShape implements Shape {
 				child.removeLevel();
 			}
 		}
-<<<<<<< Updated upstream
-
-=======
 		count = countShapes();
->>>>>>> Stashed changes
 		return true;
 
 	}
@@ -175,10 +158,6 @@ public abstract class AbstractShape implements Shape {
 		int depth = findDepth();
 		children = null;
 		createChildrenAtDepth(depth);
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 	}
 
 	private void createChildrenAtDepth(int depth) {
@@ -199,13 +178,7 @@ public abstract class AbstractShape implements Shape {
 		}
 	}
 
-<<<<<<< Updated upstream
-	/**
-	 * 
-	 */
-=======
-	
->>>>>>> Stashed changes
+
 	abstract public void createChildren();
 
 }
