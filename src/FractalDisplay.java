@@ -121,6 +121,13 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 
 		setBackground(Color.WHITE);
 		contentPane.add(this, BorderLayout.CENTER);
+		
+		label = new JLabel("Number of shapes: ");
+		label.setFont(new Font("Courier", Font.BOLD, 32));
+		JPanel northPanel = new JPanel();
+		northPanel.setBackground(Color.WHITE);
+		northPanel.add(label);
+		contentPane.add(northPanel, BorderLayout.NORTH);
 
 		// Get ready to listen to mouse clicks
 		addMouseListener(this);
@@ -135,7 +142,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 		// Resize it with the actual size
 		Insets insets = frame.getInsets();
 		int width = WIDTH + insets.left + insets.right;
-		int height = HEIGHT + insets.top + insets.bottom + (int) (southPanel.getPreferredSize().getHeight());
+		int height = HEIGHT + insets.top + insets.bottom + (int) (southPanel.getPreferredSize().getHeight()) + (int) (northPanel.getPreferredSize().getHeight());
 		frame.setSize(width, height);
 		frame.setResizable(false);
 		frame.setVisible(true);
@@ -147,12 +154,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 		popup.add(popupLabel);
 		
 		
-		label = new JLabel("Number of shapes: ");
-		label.setFont(new Font("Courier", Font.BOLD, 32));
-		JPanel northPanel = new JPanel();
-		northPanel.setBackground(Color.WHITE);
-		northPanel.add(label);
-		frame.add(northPanel, BorderLayout.NORTH);
+
 	}
 
 	/**
