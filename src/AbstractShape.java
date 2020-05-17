@@ -179,23 +179,6 @@ public abstract class AbstractShape implements Shape {
 		}
 	}
 
-	private void createChildrenAtDepth(int depth) {
-		if (depth > 1) {
-			createChildren();
-			depth--;
-			for (AbstractShape child: children) {
-				child.createChildrenAtDepth(depth);
-			}
-		}
-	}
-	
-	private int findDepth() {
-		if (children == null) {
-			return 1;
-		} else {
-			return 1 + children[0].findDepth();
-		}
-	}
 	/**
 	 * 
 	 */
