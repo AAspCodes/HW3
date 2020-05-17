@@ -48,7 +48,7 @@ public abstract class AbstractShape implements Shape {
 		}
 	}
 
-	abstract public void drawBaseShape(Graphics g);
+	protected abstract void drawBaseShape(Graphics g);
 
 	/**
 	 * 
@@ -138,6 +138,6 @@ public abstract class AbstractShape implements Shape {
 	/**
 	 * 
 	 */
-	abstract public void createChildren();
+	protected abstract void createChildren();
 
 }

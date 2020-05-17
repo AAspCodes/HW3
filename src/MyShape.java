@@ -21,7 +21,7 @@ public class MyShape extends AbstractShape {
 	 * 
 	 */
 	@Override
-	public void createChildren() {
+	protected void createChildren() {
 		this.children = new AbstractShape[8];
 		// nearly identical to the HShape...
 		int newLevel = level + 1;
@@ -44,7 +44,7 @@ public class MyShape extends AbstractShape {
 	}
 
 	@Override
-	public void drawBaseShape(Graphics g) {
+	protected void drawBaseShape(Graphics g) {
 		g.fillRect(drawStartX, drawStartY, width, height);
 
 	}

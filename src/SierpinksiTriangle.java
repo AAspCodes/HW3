@@ -35,7 +35,7 @@ public class SierpinksiTriangle extends AbstractShape {
 	}
 
 	@Override
-	public void createChildren() {
+	protected void createChildren() {
 		this.children = new AbstractShape[3];
 		int newLevel = level + 1;
 
@@ -64,7 +64,7 @@ public class SierpinksiTriangle extends AbstractShape {
 	}
 
 	@Override
-	public void drawBaseShape(Graphics g) {
+	protected void drawBaseShape(Graphics g) {
 		g.drawPolyline(xPoints, yPoints, 4);
 	}
 
