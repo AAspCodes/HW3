@@ -66,6 +66,8 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 	// -> triggered by a right click of the the mouse.
 	private JPopupMenu popup;
 	private JLabel popupLabel;
+	private JLabel label;
+
 
 	/**
 	 * Constructs a FractalDisplay to display fractal shapes
@@ -143,6 +145,14 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 		popupLabel = new JLabel("", SwingConstants.CENTER);
 		popupLabel.setFont(new Font("Courier", Font.BOLD, 32));
 		popup.add(popupLabel);
+		
+		
+		label = new JLabel("Number of shapes: ");
+		label.setFont(new Font("Courier", Font.BOLD, 32));
+		JPanel northPanel = new JPanel();
+		northPanel.setBackground(Color.WHITE);
+		northPanel.add(label);
+		frame.add(northPanel, BorderLayout.NORTH);
 	}
 
 	/**
@@ -168,13 +178,14 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 				shape = new HShape(WIDTH, HEIGHT);
 				break;
 			case MY_SHAPE:
-				shape = new MyShape(WIDTH,HEIGHT);
+				shape = new MyShape(WIDTH, HEIGHT);
 				break;
 			}
 		} else if (e.getSource() == addLevel) {
 			// Don't do anything if there is no display
 			if (shape != null) {
 				boolean success = shape.addLevel();
+				label.setText("Number of Shapes = " + AbstractShape.getCount());
 				if (!success) {
 					JOptionPane.showMessageDialog(this, "Can't add another level", "Message",
 					        JOptionPane.WARNING_MESSAGE);
@@ -184,6 +195,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 			// Don't do anything if there is no display
 			if (shape != null) {
 				boolean success = shape.removeLevel();
+				label.setText("Number of Shapes = " + AbstractShape.getCount());
 				if (!success) {
 					JOptionPane.showMessageDialog(this, "Can't remove another level", "Message",
 					        JOptionPane.WARNING_MESSAGE);

@@ -14,12 +14,22 @@ public class MyShape extends AbstractShape {
 		super(maxLevel, 1, width, height, 0, 0, color);
 	}
 
+	/**
+	 * This constructor is used for creating children.
+	 * 
+	 * @param drawStartX
+	 * @param drawStartY
+	 * @param width
+	 * @param height
+	 * @param level
+	 * 
+	 */
 	protected MyShape(int drawStartX, int drawStartY, int width, int height, int level) {
 		super(maxLevel, level, width, height, drawStartX, drawStartY, color);
 	}
 
 	/**
-	 * 
+	 * Creates a new set of children.
 	 */
 	@Override
 	public void createChildren() {
@@ -44,6 +54,9 @@ public class MyShape extends AbstractShape {
 
 	}
 
+	/**
+	 * Draws the initial shape
+	 */
 	@Override
 	public void drawBaseShape(Graphics g) {
 		g.fillRect(drawStartX, drawStartY, width, height);

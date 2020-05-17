@@ -1,4 +1,4 @@
-import java.awt.Color;
+simport java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -6,12 +6,12 @@ import java.awt.Graphics;
  *
  */
 public class HShape extends AbstractShape {
-	
 	protected static final int maxLevel = 5;
 	protected static final Color color = Color.red;
-	
+
 	/**
 	 * This constructor is used when creating the root HShape object.
+	 * 
 	 * @param width
 	 * @param height
 	 */
@@ -25,10 +25,10 @@ public class HShape extends AbstractShape {
 			  color);
 		
 	}
-	
-	
+
 	/**
 	 * This constructor is used for creating children.
+	 * 
 	 * @param drawStartX
 	 * @param drawStartY
 	 * @param width
@@ -42,7 +42,7 @@ public class HShape extends AbstractShape {
 
 
 	/**
-	 * 
+	 * Creates a new set of children.
 	 */
 	@Override
 	public void createChildren() {
@@ -66,10 +66,15 @@ public class HShape extends AbstractShape {
 		}
 	}
 
+	
+	/**
+	 * Draws the initial shape
+	 */
 	public void drawBaseShape(Graphics g) {
-		g.fillRect(drawStartX, drawStartY, width/3, height);
-		g.fillRect(drawStartX + width/3, drawStartY + height / 3, width/3, height/3);
-		g.fillRect(drawStartX + width/3 * 2, drawStartY, width/3, height);
+		g.fillRect(drawStartX, drawStartY, width / 3, height);
+		g.fillRect(drawStartX + width / 3, drawStartY + height / 3, width / 3, height / 3);
+		g.fillRect(drawStartX + width / 3 * 2, drawStartY, width / 3, height);
+
 	}
 
 }
