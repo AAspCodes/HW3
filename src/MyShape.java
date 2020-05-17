@@ -9,18 +9,33 @@ public class MyShape extends AbstractShape {
 	protected static final int maxLevel = 7;
 	protected static final Color color = Color.BLUE;
 
+	/**
+	 * Construct a new MyShape.
+	 * This constructor is for the initial root shape.
+	 * 
+	 * @param width
+	 * 		The width of the display.
+	 * @param height
+	 * 		The height of the display.
+	 */
 	protected MyShape(int width, int height) {
 		this(0, 0, width, height, 1);
 	}
 
 	/**
+	 * Construct a new MyShape.
 	 * This constructor is used for creating children.
 	 * 
 	 * @param drawStartX
+	 *            x-coordinate origin
 	 * @param drawStartY
+	 * 			  y-coordinate origin
 	 * @param width
+	 *            width of the graphics space
 	 * @param height
+	 * 			  height of the graphics space
 	 * @param level
+	 *            The depth of this shape in relation to the root.
 	 * 
 	 */
 	protected MyShape(int drawStartX, int drawStartY, int width, int height, int level) {
@@ -28,7 +43,7 @@ public class MyShape extends AbstractShape {
 	}
 
 	/**
-	 * Creates a new set of children.
+	 * Create a new set of children.
 	 */
 	@Override
 	protected void createChildren() {
@@ -54,7 +69,7 @@ public class MyShape extends AbstractShape {
 	}
 
 	/**
-	 * Draws the initial shape
+	 * Draw the base shape
 	 */
 	@Override
 	protected void drawBaseShape(Graphics g) {
