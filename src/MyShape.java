@@ -10,8 +10,7 @@ public class MyShape extends AbstractShape {
 	protected static final Color color = Color.BLUE;
 
 	protected MyShape(int width, int height) {
-		// height and width -1 to prevent the line from being draw outside the box;
-		super(maxLevel, 1, width, height, 0, 0, color);
+		this(0, 0, width, height, 1);
 	}
 
 	/**
@@ -25,19 +24,19 @@ public class MyShape extends AbstractShape {
 	 * 
 	 */
 	protected MyShape(int drawStartX, int drawStartY, int width, int height, int level) {
-		super(maxLevel, level, width, height, drawStartX, drawStartY, color);
+		super(drawStartX, drawStartY, width, height, maxLevel, level, color);
 	}
 
 	/**
 	 * Creates a new set of children.
 	 */
 	@Override
-	public void createChildren() {
+	protected void createChildren() {
 		this.children = new AbstractShape[8];
 		// nearly identical to the HShape...
 		int newLevel = level + 1;
-		int childWidth = (int) (width / 3.0);
-		int childHeight = (int) (height / 3.0);
+		int childWidth = (int) Math.round(width / 3.0);
+		int childHeight = (int) Math.round(height / 3.0);
 		int childNumber = 0;
 
 		for (int row = 0; row < 3; row++) {
@@ -58,7 +57,7 @@ public class MyShape extends AbstractShape {
 	 * Draws the initial shape
 	 */
 	@Override
-	public void drawBaseShape(Graphics g) {
+	protected void drawBaseShape(Graphics g) {
 		g.fillRect(drawStartX, drawStartY, width, height);
 
 	}

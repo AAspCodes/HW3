@@ -13,12 +13,17 @@ public class SierpinksiTriangle extends AbstractShape {
 	private int[] yPoints = new int[4];
 
 	protected SierpinksiTriangle(int width, int height) {
-		// height and width -1 to prevent the line from being drawn outside the box;
+		// height -1 to prevents the line from being drawn outside the box;
 		// it seems the display box has a height of 800 but only displays [0,799]
-		super(maxLevel, 1, width - 1, height - 1, 0, 0, color);
-		int bottomY = drawStartY + this.height;
-		xPoints = new int[] { drawStartX, (drawStartX + (this.width / 2)), drawStartX + this.width, drawStartX };
-		yPoints = new int[] { bottomY, drawStartY, bottomY, bottomY };
+		// I'm not concerned with loosing the last pixel of the right side, so width was not adjusted.
+		
+		this(
+			new int[] { 0, width / 2, width, 0 }, 			// xPoints
+			new int[] { height-1, 0, height-1, height-1 },  // yPoints
+			1.0,											// slider val
+			1												// starting level
+			);
+
 
 	}
 
@@ -43,7 +48,7 @@ public class SierpinksiTriangle extends AbstractShape {
 	 * Creates a new set of children.
 	 */
 	@Override
-	public void createChildren() {
+	protected void createChildren() {
 		this.children = new AbstractShape[3];
 		int newLevel = level + 1;
 
@@ -76,7 +81,7 @@ public class SierpinksiTriangle extends AbstractShape {
 	 * Draws the initial shape
 	 */
 	@Override
-	public void drawBaseShape(Graphics g) {
+	protected void drawBaseShape(Graphics g) {
 		g.drawPolyline(xPoints, yPoints, 4);
 	}
 

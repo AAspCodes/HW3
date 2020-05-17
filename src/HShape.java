@@ -17,14 +17,7 @@ public class HShape extends AbstractShape {
 	 * @param height
 	 */
 	public HShape(int width, int height) {
-		super(maxLevel,
-			1,  // level
-			  width,
-			  height,
-			  0, // drawStartX
-			  0, // drawStartY
-			  color);
-		
+		this(0,0,width,height,1);
 	}
 
 	/**
@@ -37,19 +30,19 @@ public class HShape extends AbstractShape {
 	 * @param level
 	 */
 	public HShape(int drawStartX, int drawStartY, int width, int height, int level) {
-		super(maxLevel, level, width, height, drawStartX, drawStartY, color);
+		super(drawStartX, drawStartY, width, height, maxLevel, level, color);
 	}
 
 	/**
 	 * Creates a new set of children.
 	 */
 	@Override
-	public void createChildren() {
+	protected void createChildren() {
 		this.children = new AbstractShape[7];
 
 		int newLevel = level + 1;
-		int childWidth = (int) (width / 3.0);
-		int childHeight = (int) (height / 3.0);
+		int childWidth = (int) Math.round(width / 3.0);
+		int childHeight = (int) Math.round(height / 3.0);
 		int childNumber = 0;
 
 		for (int row = 0; row < 3; row++) {
@@ -65,11 +58,11 @@ public class HShape extends AbstractShape {
 		}
 	}
 
-	
+
 	/**
 	 * Draws the initial shape
 	 */
-	public void drawBaseShape(Graphics g) {
+	protected void drawBaseShape(Graphics g) {
 		g.fillRect(drawStartX, drawStartY, width / 3, height);
 		g.fillRect(drawStartX + width / 3, drawStartY + height / 3, width / 3, height / 3);
 		g.fillRect(drawStartX + width / 3 * 2, drawStartY, width / 3, height);

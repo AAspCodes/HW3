@@ -18,32 +18,34 @@ public abstract class AbstractShape implements Shape {
 	protected double sliderVal = 1.0; // slider value that skews the shapes
 	public static int count;
 
+
 	/**
 	 * AbstractShape child constructor shared by the shape subclasses
 	 * 
-	 * @param maxlevel
-	 *            maximum level of recursion
-	 * @param level
-	 *            current level of recursion
-	 * @param width
-	 *            width of the graphics space
-	 * @param height
-	 * 			  height of the graphics space
 	 * @param drawStartX
 	 *            x-coordinate origin
 	 * @param drawStartY
 	 * 			  y-coordinate origin
+	 * @param width
+	 *            width of the graphics space
+	 * @param height
+	 * 			  height of the graphics space
+	 * @param maxlevel
+	 *            maximum level of recursion
+	 * @param level
+	 *            current level of recursion
 	 * @param color
 	 * 			  color of the shape
 	 * 
 	 */
-	protected AbstractShape(int maxLevel, int level, int width, int height,int drawStartX, int drawStartY, Color color) {
-		this.maxLevel = maxLevel;
-		this.level = level;
-		this.width = width;
-		this.height = height;
+	protected AbstractShape(int drawStartX, int drawStartY, int width, int height, int maxLevel, int level,
+			Color color) {
 		this.drawStartX = drawStartX;
 		this.drawStartY = drawStartY;
+		this.width = width;
+		this.height = height;
+		this.maxLevel = maxLevel;
+		this.level = level;
 		this.color = color;
 	}
 
@@ -83,7 +85,7 @@ public abstract class AbstractShape implements Shape {
 		}
 	}
 
-	abstract public void drawBaseShape(Graphics g);
+	protected abstract void drawBaseShape(Graphics g);
 
 	/**
 	 * Adds a level of recursive shapes
@@ -112,7 +114,7 @@ public abstract class AbstractShape implements Shape {
 	@Override
 	public boolean removeLevel() {
 
-		if (children == null) {
+		if (children == null) { 
 			return false;
 		} else if (children[0].children == null) {
 			children = null;
@@ -183,6 +185,6 @@ public abstract class AbstractShape implements Shape {
 	 * 
 	 */
 
-	abstract public void createChildren();
+	protected abstract void createChildren();
 
 }
