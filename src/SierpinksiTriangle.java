@@ -21,11 +21,7 @@ public class SierpinksiTriangle extends AbstractShape {
 		yPoints = new int[] { bottomY, drawStartY, bottomY, bottomY };
 
 	}
-<<<<<<< Updated upstream
-	
-=======
 
->>>>>>> Stashed changes
 	/**
 	 * This constructor is used for creating children.
 	 * 
@@ -36,10 +32,7 @@ public class SierpinksiTriangle extends AbstractShape {
 	 * 
 	 */
 	protected SierpinksiTriangle(int[] xPoints, int[] yPoints,double sliderVal, int level) {
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 		super(maxLevel, level, color);
 		this.xPoints = xPoints;
 		this.yPoints = yPoints;
