@@ -22,7 +22,7 @@ public class SierpinksiTriangle extends AbstractShape {
 
 	}
 
-	protected SierpinksiTriangle(int[] xPoints, int[] yPoints,double sliderVal, int level) {
+	protected SierpinksiTriangle(int[] xPoints, int[] yPoints, double sliderVal, int level) {
 		super(maxLevel, level, color);
 		this.xPoints = xPoints;
 		this.yPoints = yPoints;
@@ -34,38 +34,27 @@ public class SierpinksiTriangle extends AbstractShape {
 		this.children = new AbstractShape[3];
 		int newLevel = level + 1;
 
-
-		int[] sharedX = new int[] {
-				(int)((xPoints[1] - xPoints[0]) / 2.0 * sliderVal) + xPoints[0],
+		int[] sharedX = new int[] { 
+				(int) ((xPoints[1] - xPoints[0]) / 2.0 * sliderVal) + xPoints[0],
 				(int) ((xPoints[2] - xPoints[1]) / 2.0 * sliderVal) + xPoints[1],
-				(int)(xPoints[0] + ((xPoints[2] - xPoints[0]) / 2.0 * sliderVal))
-				};
-		
-		int[] sharedY = new int[] {
-				(int) (yPoints[0] - ((yPoints[0] - yPoints[1]) / 2.0 * sliderVal)) ,
+				(int) (xPoints[0] + ((xPoints[2] - xPoints[0]) / 2.0 * sliderVal)) };
+
+		int[] sharedY = new int[] { 
+				(int) (yPoints[0] - ((yPoints[0] - yPoints[1]) / 2.0 * sliderVal)),
 				(int) (yPoints[1] + ((yPoints[2] - yPoints[1]) / 2.0 * sliderVal)),
-				(int) (yPoints[0] - ((yPoints[0] - yPoints[2])/ 2.0 * sliderVal))
-				};
-		
-		
-		
-		
-		children[0] = new SierpinksiTriangle(new int[] {xPoints[0],sharedX[0], sharedX[2], xPoints[3]},
-											new int[] {yPoints[0], sharedY[0], sharedY[2], yPoints[3]},
-											sliderVal,
-											newLevel);
-		
-	
-		children[1] = new SierpinksiTriangle(new int[] {sharedX[0], xPoints[1], sharedX[1], sharedX[0]},
-											 new int[] {sharedY[0], yPoints[1], sharedY[1], sharedY[0]},
-											 sliderVal,
-											 newLevel);
-		
-		children[2] = new SierpinksiTriangle(new int[] {sharedX[2], sharedX[1], xPoints[2], sharedX[2]},
-											 new int[] {sharedY[2], sharedY[1], yPoints[2], sharedY[2]},
-											 sliderVal,
-											 newLevel);
-		
+				(int) (yPoints[0] - ((yPoints[0] - yPoints[2]) / 2.0 * sliderVal)) };
+
+		children[0] = new SierpinksiTriangle(new int[] { xPoints[0], sharedX[0], sharedX[2], xPoints[3] },
+											 new int[] { yPoints[0], sharedY[0], sharedY[2], yPoints[3] },
+											 sliderVal, newLevel);
+
+		children[1] = new SierpinksiTriangle(new int[] { sharedX[0], xPoints[1], sharedX[1], sharedX[0] },
+											 new int[] { sharedY[0], yPoints[1], sharedY[1], sharedY[0] },
+											 sliderVal, newLevel);
+
+		children[2] = new SierpinksiTriangle(new int[] { sharedX[2], sharedX[1], xPoints[2], sharedX[2] },
+											 new int[] { sharedY[2], sharedY[1], yPoints[2], sharedY[2] },
+											 sliderVal, newLevel);
 
 	}
 
