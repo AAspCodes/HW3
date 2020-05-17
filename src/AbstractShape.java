@@ -11,12 +11,13 @@ import java.awt.Graphics;
  */
 public abstract class AbstractShape implements Shape {
 	protected AbstractShape[] children;
-	protected int level, width,height, drawStartX, drawStartY;
+	protected int level, width, height, drawStartX, drawStartY;
 	protected final int maxLevel;
 	protected Color color;
 	protected double sliderVal = 1.0;
 
-	protected AbstractShape(int maxLevel, int level, int width, int height,int drawStartX, int drawStartY, Color color) {
+	protected AbstractShape(int maxLevel, int level, int width, int height, int drawStartX, int drawStartY,
+			Color color) {
 		this.maxLevel = maxLevel;
 		this.level = level;
 		this.width = width;
@@ -25,7 +26,7 @@ public abstract class AbstractShape implements Shape {
 		this.drawStartY = drawStartY;
 		this.color = color;
 	}
-	
+
 	protected AbstractShape(int maxLevel, int level, Color color) {
 		this.maxLevel = maxLevel;
 		this.level = level;
@@ -78,12 +79,12 @@ public abstract class AbstractShape implements Shape {
 			return false;
 		} else if (children[0].children == null) {
 			children = null;
-		} else{
+		} else {
 			for (AbstractShape child : children) {
 				child.removeLevel();
 			}
 		}
-		
+
 		return true;
 
 	}
@@ -95,7 +96,7 @@ public abstract class AbstractShape implements Shape {
 	public int countShapes() {
 		if (children != null) {
 			int numOfShapes = 0;
-			for (AbstractShape child: children) {
+			for (AbstractShape child : children) {
 				numOfShapes += child.countShapes();
 			}
 			return numOfShapes;
@@ -110,23 +111,22 @@ public abstract class AbstractShape implements Shape {
 	@Override
 	public void update(int value) {
 		sliderVal = value / 50.0;
-		System.out.println(sliderVal);
 		int depth = findDepth();
 		children = null;
 		createChildrenAtDepth(depth);
-		
 
 	}
+
 	private void createChildrenAtDepth(int depth) {
 		if (depth > 1) {
 			createChildren();
 			depth--;
-			for (AbstractShape child: children) {
+			for (AbstractShape child : children) {
 				child.createChildrenAtDepth(depth);
 			}
 		}
 	}
-	
+
 	private int findDepth() {
 		if (children == null) {
 			return 1;
@@ -134,6 +134,7 @@ public abstract class AbstractShape implements Shape {
 			return 1 + children[0].findDepth();
 		}
 	}
+
 	/**
 	 * 
 	 */
