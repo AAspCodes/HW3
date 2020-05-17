@@ -6,47 +6,73 @@ import java.awt.Graphics;
  *
  */
 public class HShape extends AbstractShape {
-	private int width, height, drawStartX, drawStartY;
 
+	protected static final int maxLevel = 5;
+	protected static final Color color = Color.red;
+
+	/**
+	 * This constructor is used when creating the root HShape object.
+	 * 
+	 * @param width
+	 * @param height
+	 */
 	public HShape(int width, int height) {
-		super(7, 1, Color.RED);
-		this.width = width;
-		this.height = height;
-		createChildren();
-	}
-
-	public HShape(int drawStartX, int drawStartY, int width, int height, int level) {
-		super(7, level, Color.RED);
-		this.drawStartX = drawStartX;
-		this.drawStartY = drawStartY;
-		this.width = width;
-		this.height = height;
+		super(maxLevel,
+			1,  // level
+			  width,
+			  height,
+			  0, // drawStartX
+			  0, // drawStartY
+			  color);
+		
 	}
 
 	/**
+	 * This constructor is used for creating children.
 	 * 
+	 * @param drawStartX
+	 * @param drawStartY
+	 * @param width
+	 * @param height
+	 * @param level
+	 * 
+	 */
+	public HShape(int drawStartX, int drawStartY, int width, int height, int level) {
+		super(maxLevel, level, width, height, drawStartX, drawStartY, color);
+	}
+
+	/**
+	 * Creates a new set of children.
 	 */
 	@Override
 	public void createChildren() {
-		this.children = new AbstractShape[maxLevel];
-		int childWidth, childHeight;
-		childWidth = width / 3;
-		childHeight = height / 3;
+		this.children = new AbstractShape[7];
 
-		children[0] = new HShape(drawStartX, drawStartY, childWidth, childHeight, level + 1);
-		children[1] = new HShape(drawStartX, childHeight + drawStartY, childWidth, childHeight, level + 1);
-		children[2] = new HShape(drawStartX, childHeight * 2 + drawStartY, childWidth, childHeight, level + 1);
-		children[3] = new HShape(childWidth + drawStartX, childHeight + drawStartY, childWidth, childHeight, level + 1);
-		children[4] = new HShape(childWidth * 2 + drawStartX, drawStartY, childWidth, childHeight, level + 1);
-		children[5] = new HShape(childWidth * 2 + drawStartX, childHeight + drawStartY, childWidth, childHeight,
-				level + 1);
-		children[6] = new HShape(childWidth * 2 + drawStartX, childHeight * 2 + drawStartY, childWidth, childHeight,
-				level + 1);
+		int newLevel = level + 1;
+		int childWidth = (int) (width / 3.0);
+		int childHeight = (int) (height / 3.0);
+		int childNumber = 0;
+
+		for (int row = 0; row < 3; row++) {
+			for (int col = 0; col < 3; col++) {
+				if (col == 1 && row != 1) {
+					continue;
+				}
+				// make child
+				children[childNumber] = new HShape(childWidth * col + drawStartX, childHeight * row + drawStartY,
+						childWidth, childHeight, newLevel);
+				childNumber++;
+			}
+		}
 	}
-
+	
+	/**
+	 * Draws the initial shape
+	 */
 	public void drawBaseShape(Graphics g) {
-		g.setColor(color);
-		g.fillRect(drawStartX, drawStartY, width, height);
+		g.fillRect(drawStartX, drawStartY, width / 3, height);
+		g.fillRect(drawStartX + width / 3, drawStartY + height / 3, width / 3, height / 3);
+		g.fillRect(drawStartX + width / 3 * 2, drawStartY, width / 3, height);
 	}
 
 }
