@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
+import java.util.Random;
 
 /**
  * @author Anthony Asp & Michael Cho
@@ -8,9 +9,10 @@ import java.awt.Polygon;
  */
 public class SierpinksiTriangle extends AbstractShape {
 	protected static final int maxLevel = 10;
-	protected static final Color color = Color.GREEN;
+	protected static Color color = Color.GREEN;
 	private int[] xPoints = new int[4];
 	private int[] yPoints = new int[4];
+	Random rand = new Random();
 
 	protected SierpinksiTriangle(int width, int height) {
 		// height and width -1 to prevent the line from being drawn outside the box;
@@ -37,6 +39,31 @@ public class SierpinksiTriangle extends AbstractShape {
 		this.xPoints = xPoints;
 		this.yPoints = yPoints;
 		this.sliderVal = sliderVal;
+		switch(rand.nextInt(7)) {
+		case 0:
+			color = Color.RED;
+			break;
+		case 1:
+			color = Color.BLUE;
+			break;
+		case 2:
+			color = Color.GREEN;
+			break;
+		case 3:
+			color = Color.CYAN;
+			break;
+		case 4:
+			color = Color.ORANGE;
+			break;
+		case 5:
+			color = Color.MAGENTA;
+			break;
+		case 6:
+			color = Color.BLACK;
+			break;
+		default:
+			break;
+		}
 	}
 
 	/**

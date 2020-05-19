@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 /**
  * @author Anthony Asp & Michael Cho
@@ -8,7 +9,8 @@ import java.awt.Graphics;
 public class HShape extends AbstractShape {
 
 	protected static final int maxLevel = 5;
-	protected static final Color color = Color.red;
+	protected static Color color = Color.red;
+	Random rand =  new Random();
 
 	/**
 	 * This constructor is used when creating the root HShape object.
@@ -38,7 +40,37 @@ public class HShape extends AbstractShape {
 	 * 
 	 */
 	public HShape(int drawStartX, int drawStartY, int width, int height, int level) {
+<<<<<<< Updated upstream
 		super(maxLevel, level, width, height, drawStartX, drawStartY, color);
+=======
+		super(drawStartX, drawStartY, width, height, maxLevel, level, color);
+		switch(rand.nextInt(7)) {
+		case 0:
+			color = Color.RED;
+			break;
+		case 1:
+			color = Color.BLUE;
+			break;
+		case 2:
+			color = Color.GREEN;
+			break;
+		case 3:
+			color = Color.CYAN;
+			break;
+		case 4:
+			color = Color.ORANGE;
+			break;
+		case 5:
+			color = Color.YELLOW;
+			break;
+		case 6:
+			color = Color.BLACK;
+			break;
+		default:
+			break;
+		}
+		
+>>>>>>> Stashed changes
 	}
 
 	/**
