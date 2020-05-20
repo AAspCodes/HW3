@@ -38,13 +38,11 @@ public abstract class AbstractShape implements Shape {
 	 * 
 	 */
 	protected AbstractShape(int drawStartX, int drawStartY, int width, int height, int maxLevel, int level) {
+		this(maxLevel,level);
 		this.drawStartX = drawStartX;
 		this.drawStartY = drawStartY;
 		this.width = width;
 		this.height = height;
-		this.maxLevel = maxLevel;
-		this.level = level;
-		this.color = new Color(rand.nextInt());
 	}
 
 
