@@ -97,12 +97,12 @@ public class SierpinksiTriangle extends AbstractShape {
 		int[] sharedX = new int[] { 
 				(int) ((xPoints[1] - xPoints[0]) / 2.0 * sliderVal) + xPoints[0],
 				(int) ((xPoints[2] - xPoints[1]) / 2.0 * sliderVal) + xPoints[1],
-				(int) (xPoints[0] + ((xPoints[2] - xPoints[0]) / 2.0 * sliderVal)) };
+				(int) (xPoints[2] + ((xPoints[0] - xPoints[2]) / 2.0 * sliderVal)) };
 
 		int[] sharedY = new int[] { 
 				(int) (yPoints[0] - ((yPoints[0] - yPoints[1]) / 2.0 * sliderVal)),
 				(int) (yPoints[1] + ((yPoints[2] - yPoints[1]) / 2.0 * sliderVal)),
-				(int) (yPoints[0] - ((yPoints[0] - yPoints[2]) / 2.0 * sliderVal)) };
+				(int) (yPoints[2] + ((yPoints[0] - yPoints[2]) / 2.0 * sliderVal)) };
 
 		children[0] = new SierpinksiTriangle(new int[] { xPoints[0], sharedX[0], sharedX[2], xPoints[3] },
 											 new int[] { yPoints[0], sharedY[0], sharedY[2], yPoints[3] },
