@@ -47,25 +47,25 @@ public class HShape extends AbstractShape {
 
 		switch(rand.nextInt(7)) {
 		case 0:
-			color = Color.RED;
+			super.color = Color.RED;
 			break;
 		case 1:
-			color = Color.BLUE;
+			super.color = Color.BLUE;
 			break;
 		case 2:
-			color = Color.GREEN;
+			super.color = Color.GREEN;
 			break;
 		case 3:
-			color = Color.CYAN;
+			super.color = Color.CYAN;
 			break;
 		case 4:
-			color = Color.ORANGE;
+			super.color = Color.ORANGE;
 			break;
 		case 5:
-			color = Color.YELLOW;
+			super.color = Color.YELLOW;
 			break;
 		case 6:
-			color = Color.BLACK;
+			super.color = Color.BLACK;
 			break;
 		default:
 			break;
