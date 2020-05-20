@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 /**
  * @author Anthony Asp & Michael Cho
@@ -8,7 +9,8 @@ import java.awt.Graphics;
 public class HShape extends AbstractShape {
 
 	protected static final int maxLevel = 5;
-	protected static final Color color = Color.red;
+	protected static Color color = Color.red;
+	Random rand =  new Random();
 
 	/**
 	 * Create a new HShape.
@@ -40,7 +42,35 @@ public class HShape extends AbstractShape {
 	 *            The depth of this shape in relation to the root.
 	 */
 	public HShape(int drawStartX, int drawStartY, int width, int height, int level) {
+
 		super(drawStartX, drawStartY, width, height, maxLevel, level);
+
+		switch(rand.nextInt(7)) {
+		case 0:
+			color = Color.RED;
+			break;
+		case 1:
+			color = Color.BLUE;
+			break;
+		case 2:
+			color = Color.GREEN;
+			break;
+		case 3:
+			color = Color.CYAN;
+			break;
+		case 4:
+			color = Color.ORANGE;
+			break;
+		case 5:
+			color = Color.YELLOW;
+			break;
+		case 6:
+			color = Color.BLACK;
+			break;
+		default:
+			break;
+		}
+
 	}
 
 	/**

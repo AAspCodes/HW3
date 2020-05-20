@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 /**
  * @author Anthony Asp & Michael Cho
@@ -7,7 +8,10 @@ import java.awt.Graphics;
  */
 public class MyShape extends AbstractShape {
 	protected static final int maxLevel = 7;
-	protected static final Color color = Color.BLUE;
+
+	protected static Color color = Color.BLUE;
+	Random rand = new Random();
+
 
 	/**
 	 * Construct a new MyShape.
@@ -18,6 +22,7 @@ public class MyShape extends AbstractShape {
 	 * @param height
 	 * 		The height of the display.
 	 */
+
 	protected MyShape(int width, int height) {
 		this(0, 0, width, height, 1);
 		super.color = color;
@@ -40,7 +45,34 @@ public class MyShape extends AbstractShape {
 	 * 
 	 */
 	protected MyShape(int drawStartX, int drawStartY, int width, int height, int level) {
+
 		super(drawStartX, drawStartY, width, height, maxLevel, level);
+		switch(rand.nextInt(7)) {
+			case 0:
+				color = Color.RED;
+				break;
+			case 1:
+				color = Color.BLUE;
+				break;
+			case 2:
+				color = Color.GREEN;
+				break;
+			case 3:
+				color = Color.CYAN;
+				break;
+			case 4:
+				color = Color.ORANGE;
+				break;
+			case 5:
+				color = Color.YELLOW;
+				break;
+			case 6:
+				color = Color.BLACK;
+				break;
+			default:
+				break;
+		}
+
 	}
 
 	/**
