@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
+import java.util.Random;
 
 /**
  * @author Anthony Asp & Michael Cho
@@ -8,9 +9,9 @@ import java.awt.Polygon;
  */
 public class SierpinksiTriangle extends AbstractShape {
 	protected static final int maxLevel = 10; // The max depth of the tree from the root.
-	protected static final Color color = Color.GREEN; // The color the shape will be drawn in.
 	private int[] xPoints = new int[4]; // array of integers representing the x values of the triangles vertices.
 	private int[] yPoints = new int[4]; // array of integers representing the y values of the triangles vertices.
+	
 
 	/**
 	 * Construct the initial SierpinksiTriangle shape.
@@ -31,8 +32,6 @@ public class SierpinksiTriangle extends AbstractShape {
 			1.0,											// slider value
 			1												// starting level
 			);
-		super.color = color;
-		
 	}
 
 	/**
@@ -69,12 +68,12 @@ public class SierpinksiTriangle extends AbstractShape {
 		int[] sharedX = new int[] { 
 				(int) ((xPoints[1] - xPoints[0]) / 2.0 * sliderVal) + xPoints[0],
 				(int) ((xPoints[2] - xPoints[1]) / 2.0 * sliderVal) + xPoints[1],
-				(int) (xPoints[0] + ((xPoints[2] - xPoints[0]) / 2.0 * sliderVal)) };
+				(int) (xPoints[2] + ((xPoints[0] - xPoints[2]) / 2.0 * sliderVal)) };
 
 		int[] sharedY = new int[] { 
 				(int) (yPoints[0] - ((yPoints[0] - yPoints[1]) / 2.0 * sliderVal)),
 				(int) (yPoints[1] + ((yPoints[2] - yPoints[1]) / 2.0 * sliderVal)),
-				(int) (yPoints[0] - ((yPoints[0] - yPoints[2]) / 2.0 * sliderVal)) };
+				(int) (yPoints[2] + ((yPoints[0] - yPoints[2]) / 2.0 * sliderVal)) };
 
 		children[0] = new SierpinksiTriangle(new int[] { xPoints[0], sharedX[0], sharedX[2], xPoints[3] },
 											 new int[] { yPoints[0], sharedY[0], sharedY[2], yPoints[3] },

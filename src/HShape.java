@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 /**
  * @author Anthony Asp & Michael Cho
@@ -8,7 +9,8 @@ import java.awt.Graphics;
 public class HShape extends AbstractShape {
 
 	protected static final int maxLevel = 5;
-	protected static final Color color = Color.red;
+	
+	
 
 	/**
 	 * Create a new HShape.
@@ -20,8 +22,7 @@ public class HShape extends AbstractShape {
 	 * 		The height of the display.
 	 */
 	public HShape(int width, int height) {
-		this(0,0,width,height,1);
-		super.color = color;
+		this(0,0,width,height,1);	
 	}
 
 	/**
