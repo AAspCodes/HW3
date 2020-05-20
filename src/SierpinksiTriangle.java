@@ -8,34 +8,53 @@ import java.util.Random;
  *
  */
 public class SierpinksiTriangle extends AbstractShape {
-	protected static final int maxLevel = 10;
-	protected static Color color = Color.GREEN;
-	private int[] xPoints = new int[4];
-	private int[] yPoints = new int[4];
+	protected static final int maxLevel = 10; // The max depth of the tree from the root.
+	protected static Color color = Color.GREEN; // The color the shape will be drawn in.
+	private int[] xPoints = new int[4]; // array of integers representing the x values of the triangles vertices.
+	private int[] yPoints = new int[4]; // array of integers representing the y values of the triangles vertices.
 	Random rand = new Random();
 
-	protected SierpinksiTriangle(int width, int height) {
-		// height and width -1 to prevent the line from being drawn outside the box;
-		// it seems the display box has a height of 800 but only displays [0,799]
-		super(maxLevel, 1, width - 1, height - 1, 0, 0, color);
-		int bottomY = drawStartY + this.height;
-		xPoints = new int[] { drawStartX, (drawStartX + (this.width / 2)), drawStartX + this.width, drawStartX };
-		yPoints = new int[] { bottomY, drawStartY, bottomY, bottomY };
 
+	/**
+	 * Construct the initial SierpinksiTriangle shape.
+	 * 
+	 * @param width
+	 * 		The initial display width
+	 * @param height
+	 * 		The initial display height
+	 */
+	protected SierpinksiTriangle(int width, int height) {
+		// Height - 1 to prevents the line from being drawn outside the box;
+		// it seems the display box has a height of 800 but only displays [0,799]
+		// I'm not concerned with loosing the last pixel of the right side, so width was not adjusted.
+		
+		this(
+			new int[] { 0, width / 2, width, 0 }, 			// xPoints
+			new int[] { height-1, 0, height-1, height-1 },  // yPoints
+			1.0,											// slider value
+			1												// starting level
+			);
+		super.color = color;
+		
 	}
 
 	/**
+	 * Construct a new SierpinksiTriangle.
+	 * 
 	 * This constructor is used for creating children.
 	 * 
 	 * @param xPoints
+	 * 		array of integers representing the x values of the triangles vertices.
 	 * @param yPoints
+	 * 		array of integers representing the y values of the triangles vertices.
 	 * @param sliderVal
+	 * 		The value of the slider
 	 * @param level
+	 * 		The depth of this shape in relation to the root.
 	 * 
 	 */
 	protected SierpinksiTriangle(int[] xPoints, int[] yPoints,double sliderVal, int level) {
-
-		super(maxLevel, level, color);
+		super(maxLevel, level);
 		this.xPoints = xPoints;
 		this.yPoints = yPoints;
 		this.sliderVal = sliderVal;
@@ -66,11 +85,12 @@ public class SierpinksiTriangle extends AbstractShape {
 		}
 	}
 
+
 	/**
-	 * Creates a new set of children.
+	 * Create a new set of children.
 	 */
 	@Override
-	public void createChildren() {
+	protected void createChildren() {
 		this.children = new AbstractShape[3];
 		int newLevel = level + 1;
 
@@ -96,13 +116,14 @@ public class SierpinksiTriangle extends AbstractShape {
 											 new int[] { sharedY[2], sharedY[1], yPoints[2], sharedY[2] },
 											 sliderVal, newLevel);
 
+
 	}
 
 	/**
-	 * Draws the initial shape
+	 * Draw the base shape
 	 */
 	@Override
-	public void drawBaseShape(Graphics g) {
+	protected void drawBaseShape(Graphics g) {
 		g.drawPolyline(xPoints, yPoints, 4);
 	}
 

@@ -8,25 +8,45 @@ import java.util.Random;
  */
 public class MyShape extends AbstractShape {
 	protected static final int maxLevel = 7;
+
 	protected static Color color = Color.BLUE;
 	Random rand = new Random();
-	protected MyShape(int width, int height) {
-		// height and width -1 to prevent the line from being draw outside the box;
-		super(maxLevel, 1, width, height, 0, 0, color);
-	}
-	
+
+
 	/**
+	 * Construct a new MyShape.
+	 * This constructor is for the initial root shape.
+	 * 
+	 * @param width
+	 * 		The width of the display.
+	 * @param height
+	 * 		The height of the display.
+	 */
+
+	protected MyShape(int width, int height) {
+		this(0, 0, width, height, 1);
+		super.color = color;
+	}
+
+	/**
+	 * Construct a new MyShape.
 	 * This constructor is used for creating children.
 	 * 
 	 * @param drawStartX
+	 *            x-coordinate origin
 	 * @param drawStartY
+	 * 			  y-coordinate origin
 	 * @param width
+	 *            width of the graphics space
 	 * @param height
+	 * 			  height of the graphics space
 	 * @param level
+	 *            The depth of this shape in relation to the root.
 	 * 
 	 */
 	protected MyShape(int drawStartX, int drawStartY, int width, int height, int level) {
-		super(drawStartX, drawStartY, width, height, maxLevel, level, color);
+
+		super(drawStartX, drawStartY, width, height, maxLevel, level);
 		switch(rand.nextInt(7)) {
 			case 0:
 				color = Color.RED;
@@ -56,15 +76,15 @@ public class MyShape extends AbstractShape {
 	}
 
 	/**
-	 * Creates a new set of children.
+	 * Create a new set of children.
 	 */
 	@Override
-	public void createChildren() {
+	protected void createChildren() {
 		this.children = new AbstractShape[8];
 		// nearly identical to the HShape...
 		int newLevel = level + 1;
-		int childWidth = (int) (width / 3.0);
-		int childHeight = (int) (height / 3.0);
+		int childWidth = (int) Math.round(width / 3.0);
+		int childHeight = (int) Math.round(height / 3.0);
 		int childNumber = 0;
 
 		for (int row = 0; row < 3; row++) {
@@ -82,10 +102,10 @@ public class MyShape extends AbstractShape {
 	}
 
 	/**
-	 * Draws the initial shape
+	 * Draw the base shape
 	 */
 	@Override
-	public void drawBaseShape(Graphics g) {
+	protected void drawBaseShape(Graphics g) {
 		g.fillRect(drawStartX, drawStartY, width, height);
 
 	}

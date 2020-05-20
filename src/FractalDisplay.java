@@ -121,6 +121,13 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 
 		setBackground(Color.WHITE);
 		contentPane.add(this, BorderLayout.CENTER);
+		
+		label = new JLabel("Number of shapes: ");
+		label.setFont(new Font("Courier", Font.BOLD, 32));
+		JPanel northPanel = new JPanel();
+		northPanel.setBackground(Color.WHITE);
+		northPanel.add(label);
+		contentPane.add(northPanel, BorderLayout.NORTH);
 
 		// Get ready to listen to mouse clicks
 		addMouseListener(this);
@@ -135,7 +142,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 		// Resize it with the actual size
 		Insets insets = frame.getInsets();
 		int width = WIDTH + insets.left + insets.right;
-		int height = HEIGHT + insets.top + insets.bottom + (int) (southPanel.getPreferredSize().getHeight());
+		int height = HEIGHT + insets.top + insets.bottom + (int) (southPanel.getPreferredSize().getHeight()) + (int) (northPanel.getPreferredSize().getHeight());
 		frame.setSize(width, height);
 		frame.setResizable(false);
 		frame.setVisible(true);
@@ -147,12 +154,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 		popup.add(popupLabel);
 		
 		
-		label = new JLabel("Number of shapes: ");
-		label.setFont(new Font("Courier", Font.BOLD, 32));
-		JPanel northPanel = new JPanel();
-		northPanel.setBackground(Color.WHITE);
-		northPanel.add(label);
-		frame.add(northPanel, BorderLayout.NORTH);
+
 	}
 
 	/**
@@ -173,24 +175,13 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 			switch (which) {
 			case SIERPINSKI_TRIANGLE:
 				shape = new SierpinksiTriangle(WIDTH, HEIGHT);
-				// TODO
-				// Call your SierpinskiTriangle constructor here
-				// replace shape = null with shape = new SierpinskiTriangle(...)
-//				shape = null;
+				shape.update(slider.getValue());
 				break;
 			case H_SHAPE:
 				shape = new HShape(WIDTH, HEIGHT);
-				// TODO
-				// Call your HShape constructor here
-				// Replace shape = null with shape = new HShape(...))
-//				shape = null;
 				break;
 			case MY_SHAPE:
 				shape = new MyShape(WIDTH, HEIGHT);
-				// TODO
-				// Call your MyShape constructor here
-				// Replace shape = null with shape = new MyShape(...))
-				shape = null;
 				break;
 			}
 		} else if (e.getSource() == addLevel) {
@@ -200,7 +191,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 				label.setText("Number of Shapes = " + AbstractShape.getCount());
 				if (!success) {
 					JOptionPane.showMessageDialog(this, "Can't add another level", "Message",
-					        JOptionPane.WARNING_MESSAGE);
+							JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		} else if (e.getSource() == removeLevel) {
@@ -210,7 +201,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 				label.setText("Number of Shapes = " + AbstractShape.getCount());
 				if (!success) {
 					JOptionPane.showMessageDialog(this, "Can't remove another level", "Message",
-					        JOptionPane.WARNING_MESSAGE);
+							JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		} else {
@@ -256,7 +247,7 @@ public class FractalDisplay extends JPanel implements MouseListener, ActionListe
 	 * Displays a message box giving the total number shapes in the current shape
 	 */
 	private void checkPopup(MouseEvent e) {
-		// Do it only if we have a request for a pop up menu
+		// Do it only if we have a request for a pop up menu, aka right click...
 		if (!e.isPopupTrigger()) {
 			return;
 		}
