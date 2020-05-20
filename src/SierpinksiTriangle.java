@@ -9,11 +9,9 @@ import java.util.Random;
  */
 public class SierpinksiTriangle extends AbstractShape {
 	protected static final int maxLevel = 10; // The max depth of the tree from the root.
-	protected static Color color = Color.GREEN; // The color the shape will be drawn in.
 	private int[] xPoints = new int[4]; // array of integers representing the x values of the triangles vertices.
 	private int[] yPoints = new int[4]; // array of integers representing the y values of the triangles vertices.
-	Random rand = new Random();
-
+	
 
 	/**
 	 * Construct the initial SierpinksiTriangle shape.
@@ -34,8 +32,6 @@ public class SierpinksiTriangle extends AbstractShape {
 			1.0,											// slider value
 			1												// starting level
 			);
-		super.color = color;
-		
 	}
 
 	/**
@@ -58,31 +54,6 @@ public class SierpinksiTriangle extends AbstractShape {
 		this.xPoints = xPoints;
 		this.yPoints = yPoints;
 		this.sliderVal = sliderVal;
-		switch(rand.nextInt(7)) {
-		case 0:
-			super.color = Color.RED;
-			break;
-		case 1:
-			super.color = Color.BLUE;
-			break;
-		case 2:
-			super.color = Color.GREEN;
-			break;
-		case 3:
-			super.color = Color.CYAN;
-			break;
-		case 4:
-			super.color = Color.ORANGE;
-			break;
-		case 5:
-			super.color = Color.MAGENTA;
-			break;
-		case 6:
-			super.color = Color.BLACK;
-			break;
-		default:
-			break;
-		}
 	}
 
 

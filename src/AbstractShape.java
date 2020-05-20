@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 /**
  * 
@@ -17,7 +18,7 @@ public abstract class AbstractShape implements Shape {
 	protected Color color;				// the color the shape will be drawn in
 	protected double sliderVal = 1.0;   // slider value that skews the shapes
 	public static int count;			// the number of shapes in the display
-
+	private static Random rand =  new Random();
 
 	/**
 	 * AbstractShape child constructor shared by the shape subclasses
@@ -43,6 +44,7 @@ public abstract class AbstractShape implements Shape {
 		this.height = height;
 		this.maxLevel = maxLevel;
 		this.level = level;
+		this.color = new Color(rand.nextInt());
 	}
 
 
@@ -60,6 +62,7 @@ public abstract class AbstractShape implements Shape {
 	protected AbstractShape(int maxLevel, int level) {
 		this.maxLevel = maxLevel;
 		this.level = level;
+		this.color = new Color(rand.nextInt());
 	}
 
 	/**

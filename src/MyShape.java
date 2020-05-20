@@ -8,9 +8,7 @@ import java.util.Random;
  */
 public class MyShape extends AbstractShape {
 	protected static final int maxLevel = 7;
-
-	protected static Color color = Color.BLUE;
-	Random rand = new Random();
+	
 
 
 	/**
@@ -25,7 +23,7 @@ public class MyShape extends AbstractShape {
 
 	protected MyShape(int width, int height) {
 		this(0, 0, width, height, 1);
-		super.color = color;
+		
 	}
 
 	/**
@@ -47,32 +45,6 @@ public class MyShape extends AbstractShape {
 	protected MyShape(int drawStartX, int drawStartY, int width, int height, int level) {
 
 		super(drawStartX, drawStartY, width, height, maxLevel, level);
-		switch(rand.nextInt(7)) {
-			case 0:
-				super.color = Color.RED;
-				break;
-			case 1:
-				super.color = Color.BLUE;
-				break;
-			case 2:
-				super.color = Color.GREEN;
-				break;
-			case 3:
-				super.color = Color.CYAN;
-				break;
-			case 4:
-				super.color = Color.ORANGE;
-				break;
-			case 5:
-				super.color = Color.YELLOW;
-				break;
-			case 6:
-				super.color = Color.BLACK;
-				break;
-			default:
-				break;
-		}
-
 	}
 
 	/**
