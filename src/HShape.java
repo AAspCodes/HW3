@@ -40,9 +40,6 @@ public class HShape extends AbstractShape {
 	 * 
 	 */
 	public HShape(int drawStartX, int drawStartY, int width, int height, int level) {
-<<<<<<< Updated upstream
-		super(maxLevel, level, width, height, drawStartX, drawStartY, color);
-=======
 		super(drawStartX, drawStartY, width, height, maxLevel, level, color);
 		switch(rand.nextInt(7)) {
 		case 0:
@@ -69,8 +66,7 @@ public class HShape extends AbstractShape {
 		default:
 			break;
 		}
-		
->>>>>>> Stashed changes
+
 	}
 
 	/**
